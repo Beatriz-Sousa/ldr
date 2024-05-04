@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<!--
+	Story by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="pt-BR">
+	<head>
+		<title>LanaFavs</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="manifest" href="manifest.json">
+		<script>
+			if (typeof navigator.serviceWorker !== 'undefined'){
+				navigator.serviceWorker.register('assets/js/pwabuilder-sw.js')
+			}
+		</script>
+	</head>
+	
+	<body class="is-preload">
+	
+		<header>
+			<nav class="nav-bar">
+				<div class="logo">
+					<h1>Lana</h1>
+				</div>
+				<div class="nav-list">
+					<ul>
+						<li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
+						<li class="nav-item"><a href="#albuns" class="nav-link">Álbuns</a></li>
+						<li class="nav-item"><a href="#redes" class="nav-link"> Redes Sociais</a></li>
+					</ul>
+				</div>
+	
+				<div class="mobile-menu-icon">
+					<button onclick="menuShow()"><img class="icon" src="images/menu_white_36dp.svg" alt="menu"></button>
+				</div>
+			</nav>
+			<div class="mobile-menu">
+				<ul>
+					<li class="nav-item"><a href="#" class="nav-link">Início</a></li>
+					<li class="nav-item"><a href="#wrapper" class="nav-link">Álbuns</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">Redes Sociais</a></li>
+				</ul>
+			</div>
+		</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+
+				<!-- One -->
+					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+						<div class="content">
+							<h1>Meus álbuns favoritos da Lana Del Rey</h1>
+							<p class="major">Elizabeth Woolridge Grant mais conhecida como Lana Del Rey, é uma cantora, compositora, modelo e poetisa americana.</a>.</p>
+							<ul class="actions stacked">
+								<li><a href="#first" class="button big wide smooth-scroll-middle">Get Started</a></li>
+							</ul>
+						</div>
+						<div class="image">
+							<img src="images/lana1.jpeg" alt="lana1" />
+						</div>
+					</section>
+
+				<!-- Two -->
+					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+						<div class="content" id="albuns">
+							<h2>Did You Know That There's a Tunnel Under Ocean Blvd</h2>
+							<p>Did You Know That There's a Tunnel Under Ocean Blvd é o nono álbum de estúdio da cantora, compositora e produtora musical estadunidense Lana Del Rey. Foi lançado em 24 de março de 2023, por intermédio da Interscope e Polydor Records.</p>
+						</div>
+						<div class="image">
+							<img src="images/WhatsApp Image 2024-05-03 at 09.13.34.jpeg" alt="album1" />
+						</div>
+					</section>
+
+				<!-- Three -->
+					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+						<div class="content">
+							<h2>Norman Fucking Rockwell!</h2>
+							<p>Norman Fucking Rockwell! é o sexto álbum de estúdio da cantora norte-americana Lana Del Rey. Seu lançamento ocorreu em 30 de agosto de 2019, por intermédio da Polydor Records e Interscope Records. O título do álbum foi anunciado em 18 de setembro de 2018, por intermédio do radialista Zane Lowe, da rádio Beats 1</p>
+						</div>
+						<div class="image">
+							<img src="images/WhatsApp Image 2024-05-03 at 09.13.50.jpeg" alt="album2" />
+						</div>
+					</section>
+
+				<!-- Four -->
+					<section id="sections" class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+						<div class="content">
+							<h2>Chemtrails over the Country Club</h2>
+							<p>Chemtrails over the Country Club é o sétimo álbum de estúdio da cantora e compositora estadunidense Lana Del Rey. Foi lançado em 19 de março de 2021 através das gravadoras Polydor Records e Interscope Records como o sucessor do seu sexto álbum de estúdio Norman Fucking Rockwell!.</p>
+							<div id="api-data"></div>
+							<ul class="actions stacked">
+								<li><button id="show" class="button">Learn More</button></li>
+							</ul>
+						</div>
+						<div class="image">
+							<img src="images/WhatsApp Image 2024-05-03 at 09.14.00.jpeg" alt="album3" />
+						</div>
+					</section>
+
+				<!-- Hardware -->
+
+				<p id="Hardware">
+					<button class="start" id="startFull">Tela cheia</button>
+					<button id="exit">Sair da tela cheia</button>
+				  </p>
+				  
+				  <script>
+					var $ = document.querySelector.bind(document);
+var $$ = function (selector) {
+  return [].slice.call(document.querySelectorAll(selector), 0);
+}
+var target = $('#logTarget');
+
+function logChange (event) {
+  var timeBadge = new Date().toTimeString().split(' ')[0];
+  var newState = document.createElement('p');
+  newState.innerHTML = '' + timeBadge + ' ' + event + '.';
+  target.appendChild(newState);
+}
+
+var prefix = null;
+if ('requestFullscreen' in document.documentElement) {
+  prefix = 'fullscreen';
+} else if ('mozRequestFullScreen' in document.documentElement) {
+  prefix = 'mozFullScreen';
+} else if ('webkitRequestFullscreen' in document.documentElement) {
+  prefix = 'webkitFullscreen';
+} else if ('msRequestFullscreen') {
+  prefix = 'msFullscreen';
+}
+
+var onFullscreenChange = function () {
+  var elementName = 'not set';
+  if (document[prefix + 'Element']) {
+    elementName = document[prefix + 'Element'].nodeName;
+  }
+  logChange('New fullscreen element is ' + elementName + '');
+  onFullscreenHandler(!!document[prefix + 'Element']);
+}
+
+if (document[prefix + 'Enabled']) {
+  var onFullscreenHandler = function (started) {
+    $('#exit').style.display = started ? 'inline-block' : 'none';
+    $$('.start').forEach(function (x) {
+      x.style.display = started ? 'none' : 'inline-block';
+    });
+  };
+
+  document.addEventListener(prefix.toLowerCase() + 'change', onFullscreenChange);
+
+  var goFullScreen = null;
+  var exitFullScreen = null;
+  if ('requestFullscreen' in document.documentElement) {
+    goFullScreen = 'requestFullscreen';
+    exitFullScreen = 'exitFullscreen';
+  } else if ('mozRequestFullScreen' in document.documentElement) {
+    goFullScreen = 'mozRequestFullScreen';
+    exitFullScreen = 'mozCancelFullScreen';
+  } else if ('webkitRequestFullscreen' in document.documentElement) {
+    goFullScreen = 'webkitRequestFullscreen';
+    exitFullScreen = 'webkitExitFullscreen';
+  } else if ('msRequestFullscreen') {
+    goFullScreen = 'msRequestFullscreen';
+    exitFullScreen = 'msExitFullscreen';
+  }
+
+  var goFullscreenHandler = function (element) {
+    return function () {
+      var maybePromise = element[goFullScreen]();
+      if (maybePromise && maybePromise.catch) {
+        maybePromise.catch(function (err) {
+          logChange('Cannot acquire fullscreen mode: ' + err);
+        });
+      }
+    };
+  };
+
+  $('#startFull').addEventListener('click', goFullscreenHandler(document.documentElement));
+ 
+
+  $('#exit').addEventListener('click', function () {
+    document[exitFullScreen]();
+  });
+}
+				  </script>
+
+				<!-- Footer -->
+					<footer class="wrapper style1 align-center">
+						<div class="inner" id="redes">
+							<ul class="icons">
+								<h2>Redes Sociais da LDR</h2>
+								<li><a href="https://www.facebook.com/lanadelrey/?locale=pt_BR" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/honeymoon/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+							</ul>
+							<p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/apiBarRes.js"></script>
+			<script src="assets/js/apis.js"></script>
+			
+
+	</body>
+</html>
