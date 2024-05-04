@@ -32,36 +32,41 @@ const albuns = [
 ];
 
 const button = document.querySelector('#show');
-const sections = document.querySelector('#sections');
+const sections = document.querySelector('.divided');
 
-let num = 0;
+let num = 0
 
-const request = () => {
-  const album = albuns[num];
-  
-  if (album) {
-      const { nome, descricao, imagem } = album;
-      
-      sections.innerHTML += `
-          <section id="sections" class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-              <div class="image">
-                  <img src="${imagem}" alt="${nome} Album Image" />
-              </div>
-              <div class="content">
-                  <h2>${nome}</h2>
-                  <p>${descricao}</p>
-                  <div id="api-data"></div>
-              </div>
-              
-          </section>
-      `;
-      
-      num++;
-  } else {
-      console.error('Erro: Álbum não encontrado.');
-  }
-};
+const showMore = () => {
+    const album = albuns[num]
 
-button.addEventListener('click', () => {
-  request();
-  num++;});
+    if(num % 2 === 0){
+        sections.innerHTML += `
+    <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+        <div class="content">
+            <h2>${album.nome}</h2>
+            <p>${album.descricao}</p>
+        </div>
+        <div class="image">
+            <img src=${album.imagem} alt="album2" />
+        </div>
+    </section>
+    `
+    } else{
+        sections.innerHTML += `
+    <section class="spotlight style1 orient-right content-align-right image-position-center onscroll-image-fade-in">
+        <div class="content">
+            <h2>${album.nome}</h2>
+            <p>${album.descricao}</p>
+        </div>
+        <div class="image">
+            <img src=${album.imagem} alt="album2" />
+        </div>
+    </section>
+    `
+    }
+    num++
+}
+
+button.addEventListener('click', showMore)
+
+
